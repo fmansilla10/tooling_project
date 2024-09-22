@@ -20,11 +20,11 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the code to the container
+# Copy the rest of the application code to the working directory
 COPY . .
 
 # Expose port 8501 (Streamlit's default port)
 EXPOSE 8501
 
-# Command to run the app
+# Command to run the Streamlit app
 CMD ["streamlit", "run", "project_tooling.py", "--server.port=8501", "--server.address=0.0.0.0"]

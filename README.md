@@ -41,75 +41,137 @@ The project also showcases a personalized recommendation system that suggests mo
 ## Installation and Setup
 
 ### Prerequisites
+
 - Python 3.9 or higher
 - Docker (optional, if running with Docker)
 
 ### Step 1: Clone the Repository
+
 Clone the repository to your local machine:
+
 ```bash
 git clone https://github.com/yourusername/streamlit_project.git
 cd streamlit_project
-Step 2: Set Up a Virtual Environment
+```
+### Step 2: Set Up a Virtual Environment
 It's recommended to set up a virtual environment:
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
-Step 3: Install Dependencies
+```
+### Step 3: Install Dependencies
 Install the required Python packages:
+```bash
 pip install -r requirements.txt
-Step 4: Place Dataset Files
+```
+
+### Step 4: Place Dataset Files
 Ensure the following files are in the root directory:
 
-movies.csv
-ratings.csv
+- `movies.csv`
+- `ratings.csv`
 
-You can download these from the MovieLens website.
-Step 5: Run the App Locally
+You can download these from the [MovieLens website](https://grouplens.org/datasets/movielens/).
+
+### Step 5: Run the App Locally
 To start the Streamlit app, run the following command:
-streamlit run app.py
-Open your browser and navigate to http://localhost:8501 to view the app.
 
-How to Use the App
-Sidebar Settings
+```bash
+streamlit run project_tooling.py
+```
+
+Open your browser and navigate to [http://localhost:8501](http://localhost:8501) to view the app.
+
+---
+
+### How to Use the App
+
+#### Sidebar Settings
+
 The sidebar allows users to filter the recommendations and visualizations dynamically:
 
-Minimum Number of Ratings: Select the minimum number of ratings for recommendations.
-Minimum Similarity Score: Adjust the similarity score threshold for user similarity calculations.
-Genre Filter: Filter movies based on genres.
-Year Filter: Set a range for the release year of movies.
-Popular Movies
+- **Minimum Number of Ratings**: Select the minimum number of ratings for recommendations.
+- **Minimum Similarity Score**: Adjust the similarity score threshold for user similarity calculations.
+- **Genre Filter**: Filter movies based on genres.
+- **Year Filter**: Set a range for the release year of movies.
+
+### Popular Movies
+
 The app displays the top 10 most-rated movies in the dataset, visualized as a bar chart. This gives users an overview of popular movies in the dataset.
 
-User Similarity Heatmap
+### User Similarity Heatmap
+
 The app includes a heatmap showing user similarities based on cosine similarity, allowing users to explore how similar their ratings are to other users.
 
-Scatter Plot of Movies
+### Scatter Plot of Movies
+
 The scatter plot displays the relationship between movie release years and their average ratings. You can filter the movies by genres and year using the sidebar controls.
 
-Personalized Recommendations
-Enter a User ID in the input box to receive personalized movie recommendations based on user similarity. The system will compare the entered user ID with similar users and recommend movies that meet the similarity and rating thresholds.
-Containerization with Docker
+### Personalized Recommendations
+
+Enter a **User ID** in the input box to receive personalized movie recommendations based on user similarity. The system will compare the entered user ID with similar users and recommend movies that meet the similarity and rating thresholds.
+
+---
+
+### Containerization with Docker
+
 The app has been containerized using Docker to ensure it runs consistently across different environments.
 
-Containerization with Docker
-The app has been containerized using Docker to ensure it runs consistently across different environments.
+#### Step-by-Step Guide to Running the App with Docker
 
-Step-by-Step Guide to Running the App with Docker
-Build the Docker Image: First, make sure you're in the root of the project directory, then build the Docker image:
+##### Step 1: Build the Docker Image
+
+First, make sure you're in the root of the project directory, then build the Docker image:
+
+```bash
 docker build -t streamlit-app .
-Run the Docker Container: Once the image is built, you can run it with the following command:
+```
+
+##### Step 2: Run the Docker Container
+
+Once the image is built, you can run it with the following command:
+
+```bash
 docker run -p 8501:8501 streamlit-app
+```
 
-Stop the Container: To stop the container, use the following command:
+##### Step 3: Stop the Container
+
+To stop the container, use the following command:
+
+```bash
 docker stop [container_id]
+```
 
-Project Structure
+---
 
+### Project Structure
+
+```bash
 streamlit_project/
 │
-├── project_tooling.py                     # Main Streamlit application
-├── Dockerfile                 # Docker configuration file
-├── requirements.txt           # Python dependencies
-├── movies.csv                 # MovieLens movies dataset
-├── ratings.csv                # MovieLens ratings dataset
-├── README.txt                  # Project documentation
+├── project_tooling.py        # Main Streamlit application
+├── Dockerfile                # Docker configuration file
+├── requirements.txt          # Python dependencies
+├── movies.csv                # MovieLens movies dataset
+├── ratings.csv               # MovieLens ratings dataset
+├── README.md                 # Project documentation
+```
+
+---
+
+### Future Improvements
+
+- Add more complex recommendation algorithms such as **collaborative filtering**.
+- Include more user interactivity with advanced filters and visualizations.
+- Implement a user registration system to allow personalized movie preferences.
+
+---
+
+### References
+
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [MovieLens Dataset](https://grouplens.org/datasets/movielens/)
+
 

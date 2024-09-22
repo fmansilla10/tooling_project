@@ -9,8 +9,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.impute import SimpleImputer
 
 # Update the file path to where the movies.csv and ratings.csv files are stored on your local system
-movies_file_path = "/app/movies.csv"
-ratings_file_path = "/app/ratings.csv"
+movies_file_path = "movies.csv"
+ratings_file_path = "ratings.csv"
 
 # Load the MovieLens dataset
 movies_df = pd.read_csv(movies_file_path)
