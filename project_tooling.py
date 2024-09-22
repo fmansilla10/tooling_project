@@ -47,7 +47,7 @@ ratings_matrix = ratings_df.pivot_table(
     index="userId", columns="movieId", values="rating"
 )
 
-# Handle missing values (e.g., impute with mean)
+# Handle missing values
 imputer = SimpleImputer(strategy="mean")
 ratings_matrix = imputer.fit_transform(ratings_matrix)
 

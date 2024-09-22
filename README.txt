@@ -1,153 +1,115 @@
-Summary
-=======
+# Interactive Movie Recommendation System
 
-This dataset (ml-latest-small) describes 5-star rating and free-text tagging activity from [MovieLens](http://movielens.org), a movie recommendation service. It contains 100836 ratings and 3683 tag applications across 9742 movies. These data were created by 610 users between March 29, 1996 and September 24, 2018. This dataset was generated on September 26, 2018.
+This project is an **Interactive Movie Recommendation System** built using **Streamlit**, which allows users to visualize movie data, explore user similarities, and get movie recommendations based on user input. The system uses the MovieLens dataset and offers several dynamic visualizations, including heatmaps, scatter plots, and bar charts.
 
-Users were selected at random for inclusion. All selected users had rated at least 20 movies. No demographic information is included. Each user is represented by an id, and no other information is provided.
+The project has been **containerized using Docker**, making it easy to deploy in any environment. It includes proper documentation for setting up, running, and exploring the app.
 
-The data are contained in the files `links.csv`, `movies.csv`, `ratings.csv` and `tags.csv`. More details about the contents and use of all these files follows.
+## Table of Contents
 
-This is a *development* dataset. As such, it may change over time and is not an appropriate dataset for shared research results. See available *benchmark* datasets if that is your intent.
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Installation and Setup](#installation-and-setup)
+- [How to Use the App](#how-to-use-the-app)
+- [Containerization with Docker](#containerization-with-docker)
+- [Project Structure](#project-structure)
+- [Future Improvements](#future-improvements)
+- [References](#references)
 
-This and other GroupLens data sets are publicly available for download at <http://grouplens.org/datasets/>.
+---
 
+## Project Overview
 
-Usage License
-=============
+The **Interactive Movie Recommendation System** allows users to explore the MovieLens dataset, discover patterns in movie ratings, and receive personalized movie recommendations. The system utilizes **cosine similarity** to recommend movies to users based on their ratings and the ratings of similar users.
 
-Neither the University of Minnesota nor any of the researchers involved can guarantee the correctness of the data, its suitability for any particular purpose, or the validity of results based on the use of the data set. The data set may be used for any research purposes under the following conditions:
+Users can:
+- Filter movies by genre and year.
+- Visualize the most popular movies.
+- Explore user similarity through a heatmap.
+- View movie rating patterns via scatter plots.
 
-* The user may not state or imply any endorsement from the University of Minnesota or the GroupLens Research Group.
-* The user must acknowledge the use of the data set in publications resulting from the use of the data set (see below for citation information).
-* The user may redistribute the data set, including transformations, so long as it is distributed under these same license conditions.
-* The user may not use this information for any commercial or revenue-bearing purposes without first obtaining permission from a faculty member of the GroupLens Research Project at the University of Minnesota.
-* The executable software scripts are provided "as is" without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and performance of them is with you. Should the program prove defective, you assume the cost of all necessary servicing, repair or correction.
+The project also showcases a personalized recommendation system that suggests movies based on user ratings and selected similarity thresholds.
 
-In no event shall the University of Minnesota, its affiliates or employees be liable to you for any damages arising out of the use or inability to use these programs (including but not limited to loss of data or data being rendered inaccurate).
+## Features
 
-If you have any further questions or comments, please email <grouplens-info@umn.edu>
+- **Movie Recommendation**: Suggest movies to users based on cosine similarity and minimum rating thresholds.
+- **Interactive Filtering**: Filter movies based on genres and release year range.
+- **Popular Movies Bar Chart**: Visualize the top 10 most-rated movies.
+- **User Similarity Heatmap**: Explore user similarity using a heatmap.
+- **Movie Rating Scatter Plot**: See the relationship between movie release year and average rating.
+- **Dynamic Controls**: Adjust the minimum number of ratings and similarity scores via sliders.
 
+## Installation and Setup
 
-Citation
-========
+### Prerequisites
+- Python 3.9 or higher
+- Docker (optional, if running with Docker)
 
-To acknowledge use of the dataset in publications, please cite the following paper:
+### Step 1: Clone the Repository
+Clone the repository to your local machine:
+```bash
+git clone https://github.com/yourusername/streamlit_project.git
+cd streamlit_project
+Step 2: Set Up a Virtual Environment
+It's recommended to set up a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
+Step 3: Install Dependencies
+Install the required Python packages:
+pip install -r requirements.txt
+Step 4: Place Dataset Files
+Ensure the following files are in the root directory:
 
-> F. Maxwell Harper and Joseph A. Konstan. 2015. The MovieLens Datasets: History and Context. ACM Transactions on Interactive Intelligent Systems (TiiS) 5, 4: 19:1–19:19. <https://doi.org/10.1145/2827872>
+movies.csv
+ratings.csv
 
+You can download these from the MovieLens website.
+Step 5: Run the App Locally
+To start the Streamlit app, run the following command:
+streamlit run app.py
+Open your browser and navigate to http://localhost:8501 to view the app.
 
-Further Information About GroupLens
-===================================
+How to Use the App
+Sidebar Settings
+The sidebar allows users to filter the recommendations and visualizations dynamically:
 
-GroupLens is a research group in the Department of Computer Science and Engineering at the University of Minnesota. Since its inception in 1992, GroupLens's research projects have explored a variety of fields including:
+Minimum Number of Ratings: Select the minimum number of ratings for recommendations.
+Minimum Similarity Score: Adjust the similarity score threshold for user similarity calculations.
+Genre Filter: Filter movies based on genres.
+Year Filter: Set a range for the release year of movies.
+Popular Movies
+The app displays the top 10 most-rated movies in the dataset, visualized as a bar chart. This gives users an overview of popular movies in the dataset.
 
-* recommender systems
-* online communities
-* mobile and ubiquitious technologies
-* digital libraries
-* local geographic information systems
+User Similarity Heatmap
+The app includes a heatmap showing user similarities based on cosine similarity, allowing users to explore how similar their ratings are to other users.
 
-GroupLens Research operates a movie recommender based on collaborative filtering, MovieLens, which is the source of these data. We encourage you to visit <http://movielens.org> to try it out! If you have exciting ideas for experimental work to conduct on MovieLens, send us an email at <grouplens-info@cs.umn.edu> - we are always interested in working with external collaborators.
+Scatter Plot of Movies
+The scatter plot displays the relationship between movie release years and their average ratings. You can filter the movies by genres and year using the sidebar controls.
 
+Personalized Recommendations
+Enter a User ID in the input box to receive personalized movie recommendations based on user similarity. The system will compare the entered user ID with similar users and recommend movies that meet the similarity and rating thresholds.
+Containerization with Docker
+The app has been containerized using Docker to ensure it runs consistently across different environments.
 
-Content and Use of Files
-========================
+Containerization with Docker
+The app has been containerized using Docker to ensure it runs consistently across different environments.
 
-Formatting and Encoding
------------------------
+Step-by-Step Guide to Running the App with Docker
+Build the Docker Image: First, make sure you're in the root of the project directory, then build the Docker image:
+docker build -t streamlit-app .
+Run the Docker Container: Once the image is built, you can run it with the following command:
+docker run -p 8501:8501 streamlit-app
 
-The dataset files are written as [comma-separated values](http://en.wikipedia.org/wiki/Comma-separated_values) files with a single header row. Columns that contain commas (`,`) are escaped using double-quotes (`"`). These files are encoded as UTF-8. If accented characters in movie titles or tag values (e.g. Misérables, Les (1995)) display incorrectly, make sure that any program reading the data, such as a text editor, terminal, or script, is configured for UTF-8.
+Stop the Container: To stop the container, use the following command:
+docker stop [container_id]
 
+Project Structure
 
-User Ids
---------
+streamlit_project/
+│
+├── project_tooling.py                     # Main Streamlit application
+├── Dockerfile                 # Docker configuration file
+├── requirements.txt           # Python dependencies
+├── movies.csv                 # MovieLens movies dataset
+├── ratings.csv                # MovieLens ratings dataset
+├── README.txt                  # Project documentation
 
-MovieLens users were selected at random for inclusion. Their ids have been anonymized. User ids are consistent between `ratings.csv` and `tags.csv` (i.e., the same id refers to the same user across the two files).
-
-
-Movie Ids
----------
-
-Only movies with at least one rating or tag are included in the dataset. These movie ids are consistent with those used on the MovieLens web site (e.g., id `1` corresponds to the URL <https://movielens.org/movies/1>). Movie ids are consistent between `ratings.csv`, `tags.csv`, `movies.csv`, and `links.csv` (i.e., the same id refers to the same movie across these four data files).
-
-
-Ratings Data File Structure (ratings.csv)
------------------------------------------
-
-All ratings are contained in the file `ratings.csv`. Each line of this file after the header row represents one rating of one movie by one user, and has the following format:
-
-    userId,movieId,rating,timestamp
-
-The lines within this file are ordered first by userId, then, within user, by movieId.
-
-Ratings are made on a 5-star scale, with half-star increments (0.5 stars - 5.0 stars).
-
-Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
-
-
-Tags Data File Structure (tags.csv)
------------------------------------
-
-All tags are contained in the file `tags.csv`. Each line of this file after the header row represents one tag applied to one movie by one user, and has the following format:
-
-    userId,movieId,tag,timestamp
-
-The lines within this file are ordered first by userId, then, within user, by movieId.
-
-Tags are user-generated metadata about movies. Each tag is typically a single word or short phrase. The meaning, value, and purpose of a particular tag is determined by each user.
-
-Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
-
-
-Movies Data File Structure (movies.csv)
----------------------------------------
-
-Movie information is contained in the file `movies.csv`. Each line of this file after the header row represents one movie, and has the following format:
-
-    movieId,title,genres
-
-Movie titles are entered manually or imported from <https://www.themoviedb.org/>, and include the year of release in parentheses. Errors and inconsistencies may exist in these titles.
-
-Genres are a pipe-separated list, and are selected from the following:
-
-* Action
-* Adventure
-* Animation
-* Children's
-* Comedy
-* Crime
-* Documentary
-* Drama
-* Fantasy
-* Film-Noir
-* Horror
-* Musical
-* Mystery
-* Romance
-* Sci-Fi
-* Thriller
-* War
-* Western
-* (no genres listed)
-
-
-Links Data File Structure (links.csv)
----------------------------------------
-
-Identifiers that can be used to link to other sources of movie data are contained in the file `links.csv`. Each line of this file after the header row represents one movie, and has the following format:
-
-    movieId,imdbId,tmdbId
-
-movieId is an identifier for movies used by <https://movielens.org>. E.g., the movie Toy Story has the link <https://movielens.org/movies/1>.
-
-imdbId is an identifier for movies used by <http://www.imdb.com>. E.g., the movie Toy Story has the link <http://www.imdb.com/title/tt0114709/>.
-
-tmdbId is an identifier for movies used by <https://www.themoviedb.org>. E.g., the movie Toy Story has the link <https://www.themoviedb.org/movie/862>.
-
-Use of the resources listed above is subject to the terms of each provider.
-
-
-Cross-Validation
-----------------
-
-Prior versions of the MovieLens dataset included either pre-computed cross-folds or scripts to perform this computation. We no longer bundle either of these features with the dataset, since most modern toolkits provide this as a built-in feature. If you wish to learn about standard approaches to cross-fold computation in the context of recommender systems evaluation, see [LensKit](http://lenskit.org) for tools, documentation, and open-source code examples.
